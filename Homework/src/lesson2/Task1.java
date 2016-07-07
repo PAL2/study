@@ -8,7 +8,7 @@ public class Task1 {
 		/*
 		 * The output value of the length of the string to the console
 		 */
-		System.out.println("Длина строки = " + length);
+		System.out.println("Р”Р»РёРЅР° С‚РµРєСЃС‚Р° = " + length);
 		int n = length / 2; // Half-string division
 		String s1 = s.substring(0, n); // Calculating a first half string
 		String s2 = s.substring(n, length); // Calculating a second half string
