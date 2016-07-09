@@ -1,18 +1,19 @@
-package Homework3;
+package lesson2;
 
 public class Task1 {
 
 	public static void main(String[] args) {
-		float array[] = {1.1f, 3.2f, 3.1f, 5.4f, 6.3f, 5.4f, 3.4f, 3.7f, 5.3f, 4.1f}; // Create an array
-		/* The display of array variables */
-		for (int i = 0; i < 10; i++) {
-			System.out.print(array[i] + " | ");
-		}
-		float average = 0; // assignment of the initial value of the variable
-		for (int i=0; i<10; i++){
-			/* Cycle of calculating the sum of the array elements */
-			average += array[i];
-		}
-		System.out.println("\naverage value = " + average/10); // Display the average value of the variables
+		String s = "Pivasik"; // With the text string
+		int length = s.length(); // The calculation of the string length
+		/*
+		 * The output value of the length of the string to the console
+		 */
+		System.out.println("Длина текста = " + length);
+		int n = length / 2; // Half-string division
+		String s1 = s.substring(0, n); // Calculating a first half string
+		String s2 = s.substring(n, length); // Calculating a second half string
+		System.out.println(s1); // The display of the first half-string
+		System.out.println(s2); // The display of the second half-string
 	}
+
 }
