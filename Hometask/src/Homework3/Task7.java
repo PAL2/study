@@ -9,10 +9,10 @@ public class Task7 {
 			System.out.print(array[i] + " | ");
 		}
 		for (int i = 0; i < array.length; i++) {
-			summa += array[i];
 			if (array[i] == 0) {
 				break;
 			}
+			summa += array[i];
 		}
 		System.out.println("\nСумма элементов массива до первого нуля: " + summa);
 	}
