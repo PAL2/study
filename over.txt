@@ -1,0 +1,63 @@
+»сследовать и написать отчЄт как вли€ет на перегрузку и переопределние методов изменение сигнатуры метода, типа возвращаемого значени€ и модификатора доступа.
+
+ѕерегрузка.
+
+ѕри изменении сигнатуры метода происходит перезагрузка. ѕримеры разной сигнатуры: 
+void test (){}
+void test (int a){}
+void test (double a){}
+void test (double a, double b){}
+¬се эти методы €вл€ютс€ перегруженными.
+
+ћетоды с идентичными параметрами но с разными возвращаемыми типами не €вл€ютс€ перегруженными, так как при вызове методов учитываетс€ лишь набор параметров:
+void test(int a, int b){}
+int test(int a, int b){}
+
+ћетоды с идентичными параметрами но с разными модификаторами доступа также не €вл€ютс€ перегруженными:
+static void test(int а) {}
+public void test(int а) {}
+protected void test(int а) {}
+
+
+ѕереопределение
+
+ѕри изменении сигнатуры методы происходит перегрузка метода.
+
+¬ переопределении можно использовать различные возвращаемые типы, но только в пор€дке наследовани€.
+“акой код работает:
+class AllCar {
+	public Object move() {}
+}
+class PassengerCar extends AllCar {
+	// @Override
+	public String move() {}
+}
+
+ј такой  нет:
+class AllCar {
+	public String move() {}
+}
+class PassengerCar extends AllCar {
+	// @Override
+	public Object move() {}
+}
+
+ћетод с модификатором доступа private в классе родителе нельз€ переопределить.
+ћожно использовать вместе модификаторы доступа protected и public при условии расширени€ прав доступа.
+“акой код работает:
+class AllCar {
+	protected void move() {}
+}
+class PassengerCar extends AllCar {
+	// @Override
+	public void move() {}
+}
+
+ј такой код не работает:
+class AllCar {
+	public void move() {}
+}
+class PassengerCar extends AllCar {
+	// @Override
+	protected void move() {}
+}
