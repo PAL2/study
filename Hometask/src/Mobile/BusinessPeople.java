@@ -1,25 +1,11 @@
 package Mobile;
 
-public class BusinessPeople extends Rates implements Roamingable, Internetable {
+public class BusinessPeople extends Rate implements Roamingable, Internetable {
 
-	public BusinessPeople(String name, int quantitySubscribers, int subscriptionFee, int costOneMinuteCall,
-			int costOneMB) {
-		super(name, quantitySubscribers, subscriptionFee, costOneMinuteCall, costOneMB);
-	}
+	private static final long serialVersionUID = 1L;
 
-	// public BusinessPeople(String name, int quantitySubscribers, int
-	// subscriptionFee, int costOneMinuteCall,
-	// int costOneMB) {
-	// super.name = name;
-	// super.quantitySubscribers = quantitySubscribers;
-	// super.subscriptionFee = subscriptionFee;
-	// super.costOneMinuteCall = costOneMinuteCall;
-	// super.costOneMB = costOneMB;
-	// }
-
-	@Override
-	public void roaming() {
-		System.out.println("Наличие роуминга");
+	public BusinessPeople(Name name, int quantitySubscribers, int subscriptionFee, int costOneMinuteCall) {
+		super(name, quantitySubscribers, subscriptionFee, costOneMinuteCall);
 	}
 
 	@Override
@@ -28,13 +14,18 @@ public class BusinessPeople extends Rates implements Roamingable, Internetable {
 	}
 
 	@Override
+	public void roaming() {
+		System.out.println("Наличие роуминга");
+	}
+
+	@Override
 	public void addSubsciber() {
-		// quantitySubscribers += 1;
+
 	}
 
 	@Override
 	public void delSubscriber() {
-		// quantitySubscribers -= 1;
+
 	}
 
 }
