@@ -1,20 +1,12 @@
 package Mobile;
 
-public class ShortTalk extends Rates implements Internetable {
+public class ShortTalk extends Rate implements Internetable {
 
-	public ShortTalk(String name, int quantitySubscribers, int subscriptionFee, int costOneMinuteCall, int costOneMB) {
-		super(name, quantitySubscribers, subscriptionFee, costOneMinuteCall, costOneMB);
+	private static final long serialVersionUID = 1L;
+
+	public ShortTalk(Name name, int quantitySubscribers, int subscriptionFee, int costOneMinuteCall) {
+		super(name, quantitySubscribers, subscriptionFee, costOneMinuteCall);
 	}
-
-	// public ShortTalk(String name, int quantitySubscribers, int
-	// subscriptionFee, int costOneMinuteCall,
-	// int costOneMB) {
-	// super.name = name;
-	// super.quantitySubscribers = quantitySubscribers;
-	// super.subscriptionFee = subscriptionFee;
-	// super.costOneMinuteCall = costOneMinuteCall;
-	// super.costOneMB = costOneMB;
-	// }
 
 	@Override
 	public void internet() {
@@ -23,10 +15,11 @@ public class ShortTalk extends Rates implements Internetable {
 
 	@Override
 	public void addSubsciber() {
+
 	}
 
 	@Override
 	public void delSubscriber() {
-	}
 
+	}
 }
