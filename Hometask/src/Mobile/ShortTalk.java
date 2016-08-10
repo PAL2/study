@@ -1,21 +1,22 @@
 package Mobile;
 
-public class ShortTalk extends Rate implements Internetable {
+import java.util.ResourceBundle;
 
-	private static final long serialVersionUID = 1L;
+public class ShortTalk extends Rate implements Internetable {
 
 	public ShortTalk(Name name, int quantitySubscribers, int subscriptionFee, int costOneMinuteCall) {
 		super(name, quantitySubscribers, subscriptionFee, costOneMinuteCall);
 	}
 
+	ResourceBundle rb = ResourceBundle.getBundle("resources/LabelsBundle", Runner.currentLocale);
+
 	@Override
 	public void internet() {
-		System.out.println("Наличие интернета");
+		System.out.println(rb.getString("internet"));
 	}
 
 	@Override
 	public void addSubsciber() {
-
 	}
 
 	@Override

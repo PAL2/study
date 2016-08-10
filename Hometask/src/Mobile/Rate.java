@@ -1,10 +1,10 @@
 package Mobile;
 
-import java.io.Serializable;
+import java.text.NumberFormat;
+import java.util.ResourceBundle;
 
-public abstract class Rate implements Comparable<Rate>, Serializable {
+public abstract class Rate implements Comparable<Rate> {
 
-	private static final long serialVersionUID = 1L;
 	private Name name;
 	private int quantitySubscribers;
 	private int subscriptionFee;
@@ -17,6 +17,16 @@ public abstract class Rate implements Comparable<Rate>, Serializable {
 		this.costOneMinuteCall = costOneMinuteCall;
 	}
 
+	ResourceBundle rb = ResourceBundle.getBundle("resources/LabelsBundle", Runner.currentLocale);
+	NumberFormat numFormat = NumberFormat.getNumberInstance(Runner.currentLocale);
+	
+	@Override
+	public String toString() {
+		return rb.getString("rate") + getName() + rb.getString("numberSub") + getQuantitySubscribers()
+				+ rb.getString("subscriptionFee") + getSubscriptionFee() + rb.getString("callCost") + getCostOneMinuteCall();
+	}
+
+	
 	public abstract void addSubsciber();
 
 	public abstract void delSubscriber();
@@ -24,12 +34,6 @@ public abstract class Rate implements Comparable<Rate>, Serializable {
 	@Override
 	public int compareTo(Rate r) {
 		return new Integer(subscriptionFee).compareTo(new Integer(r.getSubscriptionFee()));
-	}
-
-	@Override
-	public String toString() {
-		return "Тариф: " + name + ", количество абонентов: " + quantitySubscribers + ", абонплата: " + subscriptionFee
-				+ ", стоимость вызова: " + costOneMinuteCall;
 	}
 
 	public Name getName() {
@@ -63,9 +67,4 @@ public abstract class Rate implements Comparable<Rate>, Serializable {
 	public void setCostOneMinuteCall(int costOneMinuteCall) {
 		this.costOneMinuteCall = costOneMinuteCall;
 	}
-
 }
-
-/*
- * 
- */
