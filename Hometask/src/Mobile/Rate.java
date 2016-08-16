@@ -18,15 +18,15 @@ public abstract class Rate implements Comparable<Rate> {
 	}
 
 	ResourceBundle rb = ResourceBundle.getBundle("resources/LabelsBundle", Runner.currentLocale);
-	NumberFormat numFormat = NumberFormat.getNumberInstance(Runner.currentLocale);
-	
+	NumberFormat rubFormat = NumberFormat.getCurrencyInstance(Runner.currentLocale);
+
 	@Override
 	public String toString() {
 		return rb.getString("rate") + getName() + rb.getString("numberSub") + getQuantitySubscribers()
-				+ rb.getString("subscriptionFee") + getSubscriptionFee() + rb.getString("callCost") + getCostOneMinuteCall();
+				+ rb.getString("subscriptionFee") + rubFormat.format(subscriptionFee) + rb.getString("callCost")
+				+ rubFormat.format(costOneMinuteCall);
 	}
 
-	
 	public abstract void addSubsciber();
 
 	public abstract void delSubscriber();

@@ -44,17 +44,8 @@ public class Runner {
 
 		ResourceBundle rb = ResourceBundle.getBundle("resources/LabelsBundle", currentLocale);
 		NumberFormat numFormat = NumberFormat.getNumberInstance(currentLocale);
-		NumberFormat rubFormat = NumberFormat.getCurrencyInstance(currentLocale);
-		DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, currentLocale);
+		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM, currentLocale);
 		System.out.println(df.format(currentDate));
-
-		System.out.println(new BusinessPeople(Name.BusinessPlus, 50000, 130000, 200));
-		System.out.println(new BusinessPeople(Name.BusinessPro, numFormat.parse("100000").intValue(), 180000, 150));
-
-		new BusinessPeople(Name.BusinessPlus, numFormat.parse("50000").intValue(), 130000, 200);
-		new BusinessPeople(Name.BusinessPro, numFormat.parse("100000").intValue(), 180000, 150);
-		new ShortTalk(Name.AllSpeak, numFormat.parse("95000").intValue(), 110000, 250);
-		new ShortTalk(Name.SummerCall, numFormat.parse("230000").intValue(), 100000, 300);
 
 		int quantity = 0;
 		SortedSet<Rate> rate = new TreeSet<>();
@@ -63,9 +54,6 @@ public class Runner {
 		rate.add(new ShortTalk(Name.AllSpeak, numFormat.parse("95000").intValue(), 110000, 250));
 		rate.add(new ShortTalk(Name.SummerCall, numFormat.parse("230000").intValue(), 100000, 300));
 
-		System.out.println(rubFormat.format(10000));
-		System.out.println(numFormat.parse("50000.1").doubleValue());
-		
 		System.out.println(rb.getString("ListOfRates"));
 		Iterator<Rate> iterator4 = rate.iterator();
 		while (iterator4.hasNext()) {
